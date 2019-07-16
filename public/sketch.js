@@ -48,8 +48,8 @@ function preload(){
   darkfairy = loadImage('assets/fairy/light.png');
   fairy2 = loadImage('assets/fairy/fairy2.png');
   light = loadImage('assets/fairy/light2.png');
-  graveyard = loadSound('assets/sound/graveyard.m4a')
-  space = loadSound('assets/sound/space.m4a')
+  graveyard = createAudio('assets/sound/emilys_sound_1.mp3');
+  space = loadSound('assets/sound/em_sound_6.mp3');
 }
 
 function setup(){
@@ -97,15 +97,21 @@ for (let i=0; i < 220; i++) {
   input.position(windowWidth-150, windowHeight-30);
 
   if (keyCode === (32)) {
+    graveyard.volume(.1);
     graveyard.play();
   }
 
 }
 
 function draw() {
+
 background(234);
 camera.position.x = newAvi.x;
 camera.position.y = newAvi.y;
+
+graveyard.volume(.3);
+//space.volume(.1);
+
 
 image(note10, -4500, -3800, width/4, height/5);
 image(note2, -4670, -3670, width/5, height/5);
@@ -175,9 +181,10 @@ var data = {
   y: newAvi.y
 }
 
-if (dist(newAvi.x, newAvi.y, -4000, -4200) > 1300){
-  graveyard.stop();
-}
+// if (dist(newAvi.x, newAvi.y, -4000, -4200) > 1300){
+//   graveyard.stop();
+// }
+
  //sending
 socket.emit ('mouse', data);
 

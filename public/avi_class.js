@@ -42,27 +42,35 @@ drawAvi() {
 moveAvi() {
 
     if (keyIsDown(LEFT_ARROW)) {
-        this.x  = this.x -9 ;
+        this.x  = this.x -6 ;
         image(this.leftImage, this.x, this.y, width/20, height/9);
 
     } else
 
     if (keyIsDown(RIGHT_ARROW)) {
-        this.x = this.x + 9;
+        this.x = this.x + 6 ;
         image(this.rightImage, this.x, this.y, width/20, height/9);
 
     } else
 
     if (keyIsDown(UP_ARROW)) {
-        this.y = this.y -9 ;
+        this.y = this.y - 6 ;
         image(this.backImage, this.x, this.y, width/20, height/9);
 
     } else
 
     if (keyIsDown(DOWN_ARROW)) {
-        this.y = this.y +9;
+        this.y = this.y + 6;
         image(this.aviImage, this.x, this.y, width/20, height/9);
 
+    } 
+
+    if (keyIsDown(32)) {
+        image(this.aviImage, this.x, this.y, width/20, height/9);
+    } 
+
+    if (keyIsDown(ENTER)) {
+        image(this.aviImage, this.x, this.y, width/20, height/9);
     } 
 
     if(this.x < -5000)
